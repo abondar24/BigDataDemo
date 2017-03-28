@@ -1,3 +1,7 @@
 *.iml
 .idea
 /MapReduceWeather/target
+/HDFSdemo/target/
+
+/DataInttegrity/target
+

@@ -11,6 +11,7 @@
     <modules>
         <module>MapReduceWeather</module>
         <module>HDFSdemo</module>
+        <module>DataIntegrity</module>
     </modules>
 
     <dependencies>
