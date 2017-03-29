@@ -3,5 +3,7 @@
 /MapReduceWeather/target
 /HDFSdemo/target/
 
-/DataInttegrity/target
 
+
+DataIntegrity/target/
+MapReduceApp/target/
