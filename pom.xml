@@ -13,6 +13,7 @@
         <module>HDFSdemo</module>
         <module>DataIntegrity</module>
         <module>MapReduceApp</module>
+        <module>MapReduceTypes</module>
     </modules>
 
     <dependencies>
