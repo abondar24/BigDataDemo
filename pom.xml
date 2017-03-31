@@ -14,6 +14,7 @@
         <module>DataIntegrity</module>
         <module>MapReduceApp</module>
         <module>MapReduceTypes</module>
+        <module>MapReduceFeatures</module>
     </modules>
 
     <dependencies>

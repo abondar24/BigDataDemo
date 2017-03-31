@@ -12,7 +12,7 @@ public class RecordParser {
     private boolean temperatureMalformed;
 
     private String stationId;
-    private String stationName;
+
 
 
     public void parse(String record) {
