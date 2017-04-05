@@ -1,6 +1,7 @@
 package org.abondar.experimental.mrtypes;
 
 
+import org.abondar.experimental.mrfeatures.RecordParser;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;

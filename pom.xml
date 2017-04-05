@@ -15,6 +15,7 @@
         <module>MapReduceApp</module>
         <module>MapReduceTypes</module>
         <module>MapReduceFeatures</module>
+        <module>ZookeeperDemo</module>
     </modules>
 
     <dependencies>
