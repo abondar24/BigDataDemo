@@ -16,6 +16,7 @@
         <module>MapReduceTypes</module>
         <module>MapReduceFeatures</module>
         <module>ZookeeperDemo</module>
+        <module>KafkaDemo</module>
     </modules>
 
     <dependencies>
