@@ -1,5 +1,5 @@
 # HadoopDemo
-Some Hadoop Demos
+Some Hadoop,Zookeeper and Kafka Demos
 
 
 # Input Data
@@ -10,7 +10,7 @@ which easy to create from these files
 
 Run command examples for demos:
 
-- /jarDir/MapReduceTypes-1.0-SNAPSHOT.jar org.abondar.experimental.mrtypes.PartitionByStationUsingMultipleOutputs input/190{1,2}.gz /output
+hadoop /jarDir/MapReduceTypes-1.0-SNAPSHOT.jar org.abondar.experimental.mrtypes.PartitionByStationUsingMultipleOutputs input/190{1,2}.gz /output
 - /jarDir/MapReduceFeatures-1.0-SNAPSHOT.jar org.abondar.experimental.mrfeatures.SortDataPreprocessor input/smallfiles/ input/seqs
 - /jarDir/MapReduceFeatures-1.0-SNAPSHOT.jar org.abondar.experimental.mrfeatures.SortTemperatureByHashPartitioner -D mapreduce.job.reduces=30 input/seqs output-hashsort
 - /jarDir/MapReduceFeatures-1.0-SNAPSHOT.jar org.abondar.experimental.mrfeatures.SortTemperatureByTotalOrderPartitioner -D mapreduce.job.reduces=30 /input/seqs output-totalsort
