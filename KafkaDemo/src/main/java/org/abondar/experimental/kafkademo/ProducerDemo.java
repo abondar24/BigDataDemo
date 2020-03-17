@@ -31,7 +31,7 @@ public class ProducerDemo {
 
             String msg = "Message publishing time: "+runtime;
             System.out.println(msg);
-            producer.send(new ProducerRecord<String, String>(topic,msg));
+            producer.send(new ProducerRecord<>(topic, msg));
 
         }
 
