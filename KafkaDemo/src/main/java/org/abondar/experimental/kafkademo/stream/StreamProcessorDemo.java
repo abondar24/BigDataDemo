@@ -1,4 +1,4 @@
-package org.abondar.experimental.kafkademo;
+package org.abondar.experimental.kafkademo.stream;
 
 import org.apache.kafka.common.serialization.Serde;
 import org.apache.kafka.common.serialization.Serdes;
