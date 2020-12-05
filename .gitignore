@@ -1,9 +1,0 @@
-*.iml
-.idea
-/MapReduceWeather/target
-/HDFSdemo/target/
-
-
-
-DataIntegrity/target/
-MapReduceApp/target/
