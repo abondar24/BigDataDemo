@@ -1,7 +1,6 @@
 package org.abondar.experimental.kafkademo.command;
 
 import org.abondar.experimental.kafkademo.KafkaConsumerRunner;
-import org.abondar.experimental.kafkademo.command.CommandUtil;
 import org.abondar.experimental.kafkademo.command.impl.Command;
 
 import java.util.ArrayList;

@@ -11,5 +11,7 @@ public class CommandUtil {
 
     public static final String TEST_GROUP = "test-group";
 
+    public static final String TABLE_TOPIC = "table-topic";
+
     private CommandUtil(){}
 }
