@@ -5,6 +5,7 @@ Kafka basics
 ## Demos
 
 1. Producer (prc) - Dummy Kafka producer.
+2. Consumer (coc) - Dummy Kafka consumer.
 
 ## Build and run
 
@@ -17,4 +18,4 @@ java -jar <jar-location>/kafka.jar <arg>
 ## Notes
 
 -  Argumets are in ()
-
+-  Run consumer in parallel with producer

@@ -1,23 +1,23 @@
-package org.abondar.experimental.kafkademo;
+package org.abondar.experimental.kafkademo.command;
 
 
+import org.abondar.experimental.kafkademo.command.impl.Command;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
 
-public class ConsumerDemo {
+public class ConsumerCommand implements Command {
 
-    public static void main(String[] args) {
+    @Override
+    public void execute() {
         Properties properties = new Properties();
 
-        properties.put("bootstrap.servers", "localhost:9092");
-        properties.put("zookeeper.connect","localhost:2181");
-        properties.put("group.id","demogroup");
+        properties.put("bootstrap.servers", CommandUtil.KAFKA_HOST);
+        properties.put("zookeeper.connect",CommandUtil.ZOOKEEPER_HOST);
+        properties.put("group.id",CommandUtil.TEST_GROUP);
         properties.put("zookeeper.sync.time.ms","250");
         properties.put("zookeeper.session.timeout.ms","500");
         properties.put("autocommit.interval.ms","1000");
@@ -26,7 +26,7 @@ public class ConsumerDemo {
 
         KafkaConsumer<String,String> consumer = new KafkaConsumer<>(properties);
 
-        consumer.subscribe(Collections.singletonList("testtopic"));
+        consumer.subscribe(Collections.singletonList(CommandUtil.TEST_TOPIC));
 
         while (true){
             ConsumerRecords<String,String> records = consumer.poll(100);

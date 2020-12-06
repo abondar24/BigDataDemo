@@ -1,6 +1,7 @@
 package org.abondar.experimental.kafkademo.command.impl;
 
 
+import org.abondar.experimental.kafkademo.command.ConsumerCommand;
 import org.abondar.experimental.kafkademo.command.ProducerCommand;
 
 public class CommandSwitcher {
@@ -14,6 +15,12 @@ public class CommandSwitcher {
     public void executeCommand(String cmd){
         try {
             switch (Commands.valueOf(cmd)){
+
+                case COC:
+                    ConsumerCommand coc = new ConsumerCommand();
+                    executor.executeCommand(coc);
+                    break;
+
                 case PRC:
                     ProducerCommand prc = new ProducerCommand();
                     executor.executeCommand(prc);
