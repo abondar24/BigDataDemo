@@ -1,5 +1,6 @@
-package org.abondar.experimental.kafkademo.stream;
+package org.abondar.experimental.kafkademo.command;
 
+import org.abondar.experimental.kafkademo.command.impl.Command;
 import org.apache.kafka.common.serialization.Serde;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
@@ -12,33 +13,37 @@ import org.apache.kafka.streams.kstream.ValueMapper;
 
 import java.util.Properties;
 
-public class StreamProcessorDemo {
+public class StreamProcessorCommand implements Command {
 
-    public static void main(String[] args) throws Exception {
-        String topic = "testtopic";
-        String streamTopic = "streamtopic";
 
+    @Override
+    public void execute() {
         Properties props = new Properties();
-        props.put("application.id", "stream-app");
-        props.put("bootstrap.servers", "localhost:9092");
+        props.put("application.id", CommandUtil.APPLICATION_ID);
+        props.put("bootstrap.servers", CommandUtil.KAFKA_HOST);
 
         Serde<String> serde = Serdes.String();
 
         StreamsBuilder builder = new StreamsBuilder();
 
-        KStream<String, String> stream1 = builder.stream(topic, Consumed.with(serde, serde));
+        KStream<String, String> stream1 = builder.stream(CommandUtil.TEST_TOPIC, Consumed.with(serde, serde));
 
         KStream<String, String> stream2 = stream1.mapValues((ValueMapper<String, String>) String::toLowerCase);
 
-        stream2.to(streamTopic, Produced.with(serde, serde));
+        stream2.to(CommandUtil.STREAM_TOPIC, Produced.with(serde, serde));
 
         Topology topology = builder.build();
 
         KafkaStreams kafkaStreams = new KafkaStreams(topology, props);
 
-        kafkaStreams.start();
-        Thread.sleep(35000);
-        kafkaStreams.close();
+        try {
+            kafkaStreams.start();
+            Thread.sleep(35000);
+            kafkaStreams.close();
+        } catch (InterruptedException ex){
+            System.err.println(ex.getMessage());
+            System.exit(1);
+        }
 
 
     }

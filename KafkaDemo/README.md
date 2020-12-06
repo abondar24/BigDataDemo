@@ -9,7 +9,8 @@ Kafka basics
 3. Custom Partitioning Producer (cpc) - Producer with partitioning.
 4. Multi Threaded Consumer (mtc) - Advanced Kafka consumer.
 5. K-Table (ktc) - Kafka streams with K-Tables.
-6. Processor (poc) - Basic Kafka stream processor.
+6. Processor (poc) - Basic Kafka processor.
+7. Stream Processor (spc) - Basic Kafka stream processor.
 
 ## Build and run
 

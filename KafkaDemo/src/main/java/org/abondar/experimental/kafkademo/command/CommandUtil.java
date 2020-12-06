@@ -21,5 +21,7 @@ public class CommandUtil {
 
     public static final String TEST_PROCESSOR = "test-processor";
 
+    public static final String STREAM_TOPIC = "stream-topic";
+
     private CommandUtil(){}
 }

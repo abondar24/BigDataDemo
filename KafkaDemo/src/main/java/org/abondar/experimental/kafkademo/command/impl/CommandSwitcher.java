@@ -7,6 +7,7 @@ import org.abondar.experimental.kafkademo.command.CustomPartitioningProducerComm
 import org.abondar.experimental.kafkademo.command.ProducerCommand;
 import org.abondar.experimental.kafkademo.command.KTableCommand;
 import org.abondar.experimental.kafkademo.command.ProcessorCommand;
+import org.abondar.experimental.kafkademo.command.StreamProcessorCommand;
 
 public class CommandSwitcher {
 
@@ -48,6 +49,11 @@ public class CommandSwitcher {
                 case PRC:
                     ProducerCommand prc = new ProducerCommand();
                     executor.executeCommand(prc);
+                    break;
+
+                case SPC:
+                    StreamProcessorCommand spc = new StreamProcessorCommand();
+                    executor.executeCommand(spc);
                     break;
             }
         } catch (IllegalArgumentException ex){

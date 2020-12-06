@@ -8,4 +8,6 @@ public enum Commands {
      MTC,
      POC,
      PRC,
+     SPC,
+
 }
