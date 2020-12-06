@@ -1,11 +1,12 @@
 package org.abondar.experimental.kafkademo.stream;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.serialization.Serializer;
-import org.codehaus.jackson.map.ObjectMapper;
+
 
 public class ModelJsonSerializer<T> implements Serializer<T> {
 
-    private ObjectMapper mapper;
+    private final ObjectMapper mapper;
 
     public ModelJsonSerializer(){
         mapper = new ObjectMapper();
