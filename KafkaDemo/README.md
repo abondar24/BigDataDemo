@@ -7,6 +7,7 @@ Kafka basics
 1. Producer (prc) - Dummy Kafka producer.
 2. Consumer (coc) - Dummy Kafka consumer.
 3. Custom Partitioning Producer (cpc) - Producer with partitioning.
+4. Multi Threaded Consumer (mtc) - Advanced Kafka consumer.
 
 ## Build and run
 
@@ -19,4 +20,4 @@ java -jar <jar-location>/kafka.jar <arg>
 ## Notes
 
 -  Argumets are in ()
--  Run consumer in parallel with producer
+-  Run consumers and producers in parallel

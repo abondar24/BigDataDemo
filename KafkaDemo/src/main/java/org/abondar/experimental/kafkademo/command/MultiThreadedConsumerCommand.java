@@ -1,4 +1,8 @@
-package org.abondar.experimental.kafkademo;
+package org.abondar.experimental.kafkademo.command;
+
+import org.abondar.experimental.kafkademo.KafkaConsumerRunner;
+import org.abondar.experimental.kafkademo.command.CommandUtil;
+import org.abondar.experimental.kafkademo.command.impl.Command;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,14 +10,15 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class MultiThreadedConsumerDemo {
+public class MultiThreadedConsumerCommand implements Command {
 
-    public static void main(String[] args) {
+    @Override
+    public void execute() {
         Properties properties = new Properties();
 
-        properties.put("bootstrap.servers", "localhost:9092");
-        properties.put("zookeeper.connect","localhost:2181");
-        properties.put("group.id","demogroup");
+        properties.put("bootstrap.servers", CommandUtil.KAFKA_HOST);
+        properties.put("zookeeper.connect",CommandUtil.ZOOKEEPER_HOST);
+        properties.put("group.id",CommandUtil.TEST_GROUP);
         properties.put("zookeeper.sync.time.ms","250");
         properties.put("zookeeper.session.timeout.ms","500");
         properties.put("autocommit.interval.ms","1000");
@@ -34,9 +39,9 @@ public class MultiThreadedConsumerDemo {
         }	catch	(InterruptedException	ie)	{
         }
 
-       for (KafkaConsumerRunner runner:runners){
+        for (KafkaConsumerRunner runner:runners){
             runner.shutdown();
-       }
-       executor.shutdown();
+        }
+        executor.shutdown();
     }
 }
