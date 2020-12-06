@@ -1,7 +1,8 @@
-package org.abondar.experimental.kafkademo.stream;
+package org.abondar.experimental.kafkademo.command;
 
-import org.abondar.experimental.kafkademo.command.CommandUtil;
+
 import org.abondar.experimental.kafkademo.command.impl.Command;
+import org.abondar.experimental.kafkademo.stream.StreamModel;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
@@ -16,12 +17,12 @@ public class KTableCommand implements Command {
     @Override
     public void execute() {
         Properties props = new Properties();
-        props.put("application.id", "stream-app");
+        props.put("application.id", CommandUtil.APPLICATION_ID);
         props.put("bootstrap.servers", CommandUtil.KAFKA_HOST);
 
         StreamsBuilder builder = new StreamsBuilder();
 
-        KTable<String,StreamModel> table = builder.table(CommandUtil.TABLE_TOPIC);
+        KTable<String, StreamModel> table = builder.table(CommandUtil.TABLE_TOPIC);
         KStream<String,StreamModel> stream = builder.stream(CommandUtil.TEST_TOPIC);
 
         Topology topology = builder.build();

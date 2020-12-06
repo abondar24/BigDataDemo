@@ -5,7 +5,8 @@ import org.abondar.experimental.kafkademo.command.MultiThreadedConsumerCommand;
 import org.abondar.experimental.kafkademo.command.ConsumerCommand;
 import org.abondar.experimental.kafkademo.command.CustomPartitioningProducerCommand;
 import org.abondar.experimental.kafkademo.command.ProducerCommand;
-import org.abondar.experimental.kafkademo.stream.KTableCommand;
+import org.abondar.experimental.kafkademo.command.KTableCommand;
+import org.abondar.experimental.kafkademo.command.ProcessorCommand;
 
 public class CommandSwitcher {
 
@@ -37,6 +38,11 @@ public class CommandSwitcher {
                 case MTC:
                     MultiThreadedConsumerCommand mtc = new MultiThreadedConsumerCommand();
                     executor.executeCommand(mtc);
+                    break;
+
+                case POC:
+                    ProcessorCommand poc = new ProcessorCommand();
+                    executor.executeCommand(poc);
                     break;
 
                 case PRC:

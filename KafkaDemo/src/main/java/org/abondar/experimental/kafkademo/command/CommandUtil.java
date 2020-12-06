@@ -13,5 +13,13 @@ public class CommandUtil {
 
     public static final String TABLE_TOPIC = "table-topic";
 
+    public static final String APPLICATION_ID = "stream-app";
+
+    public static final String TEST_SINK = "test-sink";
+
+    public static final String TEST_NODE = "test-node";
+
+    public static final String TEST_PROCESSOR = "test-processor";
+
     private CommandUtil(){}
 }
