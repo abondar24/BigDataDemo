@@ -9,6 +9,7 @@ import org.abondar.experimental.kafkademo.command.KTableCommand;
 import org.abondar.experimental.kafkademo.command.ProcessorCommand;
 import org.abondar.experimental.kafkademo.command.StreamJoinerCommand;
 import org.abondar.experimental.kafkademo.command.StreamProcessorCommand;
+import org.abondar.experimental.kafkademo.stream.StreamStoreCommand;
 
 public class CommandSwitcher {
 
@@ -60,6 +61,11 @@ public class CommandSwitcher {
                 case SPC:
                     StreamProcessorCommand spc = new StreamProcessorCommand();
                     executor.executeCommand(spc);
+                    break;
+
+                case SSC:
+                    StreamStoreCommand ssc = new StreamStoreCommand();
+                    executor.executeCommand(ssc);
                     break;
             }
         } catch (IllegalArgumentException ex){

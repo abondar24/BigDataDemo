@@ -10,5 +10,5 @@ public enum Commands {
      PRC,
      SJC,
      SPC,
-
+     SSC
 }
