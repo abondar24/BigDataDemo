@@ -1,6 +1,7 @@
 package org.abondar.experimetnal.zookeeperdemo;
 
 
+import org.abondar.experimetnal.zookeeperdemo.command.CommandUtil;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 
@@ -14,8 +15,8 @@ public class ConfigWatcher implements Watcher {
     }
 
     public void displayConfig() throws Exception {
-        String value = store.read(ConfigUpdater.PATH, this);
-        System.out.printf("Read %s as %s\n",ConfigUpdater.PATH, value);
+        String value = store.read(CommandUtil.CONFIG_PATH, this);
+        System.out.printf("Read %s as %s\n",CommandUtil.CONFIG_PATH, value);
     }
 
     @Override

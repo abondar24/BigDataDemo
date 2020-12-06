@@ -8,6 +8,8 @@ public class CommandUtil {
 
     public static  final String TEST_MEMBER = "test-member";
 
+    public static final  String CONFIG_PATH = "/config";
+
 
     private CommandUtil(){}
 }

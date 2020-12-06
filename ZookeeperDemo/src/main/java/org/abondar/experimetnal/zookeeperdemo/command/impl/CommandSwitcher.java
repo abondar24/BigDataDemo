@@ -1,5 +1,6 @@
 package org.abondar.experimetnal.zookeeperdemo.command.impl;
 
+import org.abondar.experimetnal.zookeeperdemo.command.ConfigUpdaterCommand;
 import org.abondar.experimetnal.zookeeperdemo.command.DeleteGroupCommand;
 import org.abondar.experimetnal.zookeeperdemo.command.CreateGroupCommand;
 import org.abondar.experimetnal.zookeeperdemo.command.JoinGroupCommand;
@@ -16,24 +17,29 @@ public class CommandSwitcher {
     public void executeCommand(String cmd){
         try {
             switch (Commands.valueOf(cmd)){
-                case CG:
-                    CreateGroupCommand cg = new CreateGroupCommand();
-                    executor.executeCommand(cg);
+                case CGC:
+                    CreateGroupCommand cgc = new CreateGroupCommand();
+                    executor.executeCommand(cgc);
                     break;
 
-                case DG:
-                    DeleteGroupCommand dg = new DeleteGroupCommand();
-                    executor.executeCommand(dg);
+                case CUC:
+                    ConfigUpdaterCommand cuc = new ConfigUpdaterCommand();
+                    executor.executeCommand(cuc);
                     break;
 
-                case JG:
-                    JoinGroupCommand jg = new JoinGroupCommand();
-                    executor.executeCommand(jg);
+                case DGC:
+                    DeleteGroupCommand dgc = new DeleteGroupCommand();
+                    executor.executeCommand(dgc);
                     break;
 
-                case LG:
-                    ListGroupCommand lg = new ListGroupCommand();
-                    executor.executeCommand(lg);
+                case JGC:
+                    JoinGroupCommand jgc = new JoinGroupCommand();
+                    executor.executeCommand(jgc);
+                    break;
+
+                case LGC:
+                    ListGroupCommand lgc = new ListGroupCommand();
+                    executor.executeCommand(lgc);
                     break;
 
 
