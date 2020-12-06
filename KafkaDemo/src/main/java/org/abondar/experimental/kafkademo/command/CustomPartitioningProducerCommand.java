@@ -1,5 +1,6 @@
-package org.abondar.experimental.kafkademo;
+package org.abondar.experimental.kafkademo.command;
 
+import org.abondar.experimental.kafkademo.command.impl.Command;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -8,11 +9,13 @@ import java.util.Date;
 import java.util.Properties;
 import java.util.Random;
 
-public class CustomPartitioningProducer {
+public class CustomPartitioningProducerCommand implements Command {
 
-    public static void main(String[] args) {
+
+    @Override
+    public void execute() {
         Properties properties = new Properties();
-        properties.put("bootstrap.servers", "localhost:9092");
+        properties.put("bootstrap.servers", CommandUtil.KAFKA_HOST);
         properties.put("serializer.class", "kafka.serializer.StringEncoder");
         properties.put("request.required.acks", "1");
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
@@ -21,10 +24,9 @@ public class CustomPartitioningProducer {
         properties.put("partitioner.class", "org.abondar.experimental.kafkademo.DemoPartitioner");
         Producer<String, String> producer = new KafkaProducer<>(properties);
 
-        String topic = "testtopic";
         int messageCount = 10;
 
-        System.out.println("Topic " + topic);
+        System.out.println("Topic " + CommandUtil.TEST_TOPIC);
         System.out.println("Message count " + messageCount);
 
         Random random = new Random();
@@ -34,7 +36,7 @@ public class CustomPartitioningProducer {
 
             String msg = accessTime + ",kafka.apache.org," + clientIP;
             System.out.println(msg);
-            producer.send(new ProducerRecord<>(topic, clientIP,msg));
+            producer.send(new ProducerRecord<>(CommandUtil.TEST_TOPIC, clientIP,msg));
 
         }
 

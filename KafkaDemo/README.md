@@ -6,6 +6,7 @@ Kafka basics
 
 1. Producer (prc) - Dummy Kafka producer.
 2. Consumer (coc) - Dummy Kafka consumer.
+3. Custom Partitioning Producer (cpc) - Producer with partitioning.
 
 ## Build and run
 

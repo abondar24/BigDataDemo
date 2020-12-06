@@ -2,6 +2,7 @@ package org.abondar.experimental.kafkademo.command.impl;
 
 
 import org.abondar.experimental.kafkademo.command.ConsumerCommand;
+import org.abondar.experimental.kafkademo.command.CustomPartitioningProducerCommand;
 import org.abondar.experimental.kafkademo.command.ProducerCommand;
 
 public class CommandSwitcher {
@@ -19,6 +20,11 @@ public class CommandSwitcher {
                 case COC:
                     ConsumerCommand coc = new ConsumerCommand();
                     executor.executeCommand(coc);
+                    break;
+
+                case CPC:
+                    CustomPartitioningProducerCommand cpc = new CustomPartitioningProducerCommand();
+                    executor.executeCommand(cpc);
                     break;
 
                 case PRC:
