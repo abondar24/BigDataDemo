@@ -1,6 +1,7 @@
 package org.abondar.experimetnal.zookeeperdemo.command.impl;
 
 import org.abondar.experimetnal.zookeeperdemo.command.ConfigUpdaterCommand;
+import org.abondar.experimetnal.zookeeperdemo.command.ConfigWatcherCommand;
 import org.abondar.experimetnal.zookeeperdemo.command.DeleteGroupCommand;
 import org.abondar.experimetnal.zookeeperdemo.command.CreateGroupCommand;
 import org.abondar.experimetnal.zookeeperdemo.command.JoinGroupCommand;
@@ -25,6 +26,11 @@ public class CommandSwitcher {
                 case CUC:
                     ConfigUpdaterCommand cuc = new ConfigUpdaterCommand();
                     executor.executeCommand(cuc);
+                    break;
+
+                case CWC:
+                    ConfigWatcherCommand cwc = new ConfigWatcherCommand();
+                    executor.executeCommand(cwc);
                     break;
 
                 case DGC:

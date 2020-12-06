@@ -6,5 +6,6 @@ public enum Commands {
     DGC,
     JGC,
     LGC,
-    CUC
+    CUC,
+    CWC,
 }

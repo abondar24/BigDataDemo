@@ -9,6 +9,7 @@ Zookeeper basics
 3. Join Group (jgc) -  Add member to a group.
 4. Delete Group (dgc) - Delete group with all children.
 5. Config Updater (cuc) - Create and Update configuration.
+6. Config Watcher (cwc) - Read updated configuration.
 
 ## Build and run
 
@@ -21,4 +22,4 @@ java -jar <jar-location>/zookeper.jar <arg>
 ## Notes
 
 -  Argumets are in ()
-
+-  Run config watcher in parallel with config updater

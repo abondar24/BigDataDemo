@@ -1,18 +1,14 @@
-package org.abondar.experimetnal.zookeeperdemo;
+package org.abondar.experimetnal.zookeeperdemo.command;
 
 
-import org.abondar.experimetnal.zookeeperdemo.command.CommandUtil;
+import org.abondar.experimetnal.zookeeperdemo.ActiveKeyValueStore;
+import org.abondar.experimetnal.zookeeperdemo.command.impl.Command;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 
-public class ConfigWatcher implements Watcher {
+public class ConfigWatcherCommand implements Watcher, Command {
 
     private ActiveKeyValueStore store;
-
-    public ConfigWatcher(String hosts) throws Exception {
-        store = new ActiveKeyValueStore();
-        store.connect(hosts);
-    }
 
     public void displayConfig() throws Exception {
         String value = store.read(CommandUtil.CONFIG_PATH, this);
@@ -30,10 +26,20 @@ public class ConfigWatcher implements Watcher {
           }
     }
 
-    public static void main(String[] args) throws Exception {
-        ConfigWatcher configWatcher = new ConfigWatcher(args[0]);
-        configWatcher.displayConfig();
 
-        Thread.sleep(Long.MAX_VALUE);
+    @Override
+    public void execute() {
+        try {
+            store  = new ActiveKeyValueStore();
+            store.connect(CommandUtil.ZOOKEEPER_HOST);
+
+            displayConfig();
+
+            Thread.sleep(Long.MAX_VALUE);
+        } catch (Exception ex){
+            System.err.println(ex.getMessage());
+            System.exit(1);
+        }
+
     }
 }
