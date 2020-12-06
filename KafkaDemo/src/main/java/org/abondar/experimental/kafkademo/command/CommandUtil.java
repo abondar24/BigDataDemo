@@ -25,5 +25,21 @@ public class CommandUtil {
 
     public static final String STREAM_TOPIC = "stream-topic";
 
+    public static final String SERIALIZER = "kafka.serializer.StringEncoder";
+
+    public static final String STRING_SERIALIZER = "org.apache.kafka.common.serialization.StringSerializer";
+
+    public static final String STRING_DESERIALIZER = "org.apache.kafka.common.serialization.StringDeserializer";
+
+    public static final String REQUIRED_ACKS = "1";
+
+    public static final String PARTITIONER = "org.abondar.experimental.kafkademo.DemoPartitioner";
+
+    public static final String ZOOKEEPER_SYNC_TIME = "250";
+
+    public static final String ZOOKEEPER_TIMEOUT = "500";
+
+    public static final String ZOOKEEPER_INTERVAL = "1000";
+
     private CommandUtil(){}
 }

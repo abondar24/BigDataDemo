@@ -16,12 +16,11 @@ public class CustomPartitioningProducerCommand implements Command {
     public void execute() {
         Properties properties = new Properties();
         properties.put("bootstrap.servers", CommandUtil.KAFKA_HOST);
-        properties.put("serializer.class", "kafka.serializer.StringEncoder");
-        properties.put("request.required.acks", "1");
-        properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        properties.put("serializer.class", "kafka.serializer.StringEncoder");
-        properties.put("partitioner.class", "org.abondar.experimental.kafkademo.DemoPartitioner");
+        properties.put("serializer.class", CommandUtil.SERIALIZER);
+        properties.put("request.required.acks", CommandUtil.REQUIRED_ACKS);
+        properties.put("key.serializer", CommandUtil.STRING_SERIALIZER);
+        properties.put("value.serializer",CommandUtil.STRING_SERIALIZER);
+        properties.put("partitioner.class", CommandUtil.PARTITIONER);
         Producer<String, String> producer = new KafkaProducer<>(properties);
 
         int messageCount = 10;
