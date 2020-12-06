@@ -11,6 +11,8 @@ Kafka basics
 5. K-Table (ktc) - Kafka streams with K-Tables.
 6. Processor (poc) - Basic Kafka processor.
 7. Stream Processor (spc) - Basic Kafka stream processor.
+8. Stream Joiner (sjc) - Basic Kafka stream joiner.
+
 
 ## Build and run
 

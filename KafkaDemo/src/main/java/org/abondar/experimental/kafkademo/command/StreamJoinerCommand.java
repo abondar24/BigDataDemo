@@ -1,5 +1,11 @@
-package org.abondar.experimental.kafkademo.stream;
+package org.abondar.experimental.kafkademo.command;
 
+import org.abondar.experimental.kafkademo.command.impl.Command;
+import org.abondar.experimental.kafkademo.stream.ModelJoiner;
+import org.abondar.experimental.kafkademo.stream.ModelJsonDeserializer;
+import org.abondar.experimental.kafkademo.stream.ModelJsonSerializer;
+import org.abondar.experimental.kafkademo.stream.ModelSerde;
+import org.abondar.experimental.kafkademo.stream.StreamModel;
 import org.apache.kafka.common.serialization.Serde;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
@@ -17,14 +23,14 @@ import org.apache.kafka.streams.kstream.ValueJoiner;
 import java.time.Duration;
 import java.util.Properties;
 
-public class StreamJoinerDemo {
+public class StreamJoinerCommand implements Command {
 
-    public static void main(String[] args) throws Exception {
-        String topic = "testtopic";
+    @Override
+    public void execute() {
 
         Properties props = new Properties();
-        props.put("application.id", "stream-app");
-        props.put("bootstrap.servers", "localhost:9092");
+        props.put("application.id", CommandUtil.APPLICATION_ID);
+        props.put("bootstrap.servers", CommandUtil.KAFKA_HOST);
 
         Serde<String> strSerde = Serdes.String();
 
@@ -46,7 +52,7 @@ public class StreamJoinerDemo {
 
         StreamsBuilder builder = new StreamsBuilder();
         KStream<String, StreamModel> transactionStream = builder
-                .stream(topic, Consumed.with(strSerde, modelSerde)).map(kvMapper);
+                .stream(CommandUtil.TEST_TOPIC, Consumed.with(strSerde, modelSerde)).map(kvMapper);
         KStream<String, StreamModel>[] branchesStream = transactionStream
                 .selectKey((k, v) -> v.getName())
                 .selectKey((k, v) -> String.valueOf(v.getId()))
@@ -67,8 +73,13 @@ public class StreamJoinerDemo {
         printStream.print(Printed.<String, String>toSysOut().withLabel("Joined Stream"));
 
 
-        kafkaStreams.start();
-        Thread.sleep(35000);
-        kafkaStreams.close();
+        try {
+            kafkaStreams.start();
+            Thread.sleep(35000);
+            kafkaStreams.close();
+        } catch (InterruptedException ex){
+            System.err.println(ex.getMessage());
+            System.exit(1);
+        }
     }
 }
