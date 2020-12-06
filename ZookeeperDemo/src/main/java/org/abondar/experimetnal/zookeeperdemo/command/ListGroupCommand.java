@@ -10,13 +10,13 @@ public class ListGroupCommand extends ConnectionWatcher implements Command {
 
     @Override
     public void execute() {
-        String path = "/" + ConnectionUtil.TEST_GROUP;
+        String path = "/" + CommandUtil.TEST_GROUP;
 
         try {
-            connect(ConnectionUtil.HOST);
-            List<String> children = zooKeeper.getChildren(path, false);
+            connect(CommandUtil.ZOOKEEPER_HOST);
+            List<String> children = zooKeeper.getChildren(path, true);
             if (children.isEmpty()) {
-                System.err.printf("No members in group %s\n", ConnectionUtil.TEST_GROUP);
+                System.err.printf("No members in group %s\n", CommandUtil.TEST_GROUP);
                 System.exit(1);
             }
 

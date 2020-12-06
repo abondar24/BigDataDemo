@@ -4,8 +4,9 @@ Zookeeper basics
 
 ## Demos
 
-1. Create Group (cg) - Connect to Zookeeper and create a group.
-2. List Group (lg) - Connect to Zookeeper and list group members.
+1. Create Group (cg) - Create a group.
+2. List Group (lg) -  List group members.
+3. Join Group (jg) -  Add member to a group.
 
 ## Build and run
 
