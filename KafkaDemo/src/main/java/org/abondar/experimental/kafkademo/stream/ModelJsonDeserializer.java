@@ -1,14 +1,14 @@
 package org.abondar.experimental.kafkademo.stream;
 
 
-import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.serialization.Deserializer;
-import org.codehaus.jackson.map.ObjectMapper;
+
 
 public class ModelJsonDeserializer<T> implements Deserializer<T> {
 
-    private ObjectMapper mapper;
-    private Class<T> clazz;
+    private final ObjectMapper mapper;
+    private final Class<T> clazz;
 
     public ModelJsonDeserializer( Class<T> clazz){
         mapper = new ObjectMapper();

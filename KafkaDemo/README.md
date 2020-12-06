@@ -4,7 +4,7 @@ Kafka basics
 
 ## Demos
 
-
+1. Producer (prc) - Dummy Kafka producer.
 
 ## Build and run
 
