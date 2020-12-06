@@ -5,7 +5,8 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
+    <version>1.0</version>
     <groupId>org.abondar.experimental</groupId>
     <artifactId>ZookeeperDemo</artifactId>
 
@@ -51,7 +52,7 @@
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            <mainClass>org.abondar.experimental.zookeeperdemo.Main</mainClass>
+                            <mainClass>org.abondar.experimetnal.zookeeperdemo.Main</mainClass>
                         </manifest>
                     </archive>
                     <finalName>zookeeper</finalName>

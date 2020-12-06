@@ -4,6 +4,7 @@ Zookeeper basics
 
 ## Demos
 
+1. Create Group (cg) - Connect to Zookeeper and create a group.
 
 ## Build and run
 
