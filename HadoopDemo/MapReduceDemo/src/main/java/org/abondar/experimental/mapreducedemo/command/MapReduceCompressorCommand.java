@@ -22,7 +22,7 @@ public class MapReduceCompressorCommand implements Command {
         try {
             if (args.length != 2) {
                 System.err.println("Usage: mrco <input path> <output path>");
-                System.exit(-1);
+                System.exit(2);
             }
 
             Configuration conf = new Configuration();

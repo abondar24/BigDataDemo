@@ -21,7 +21,7 @@ public class MapReduceDriverCommand extends Configured implements Tool, Command 
         if (args.length != 2) {
             System.err.println("Usage: mrd <input <output>");
             ToolRunner.printGenericCommandUsage(System.err);
-            return -1;
+            return 2;
         }
 
 

@@ -63,6 +63,11 @@ public class MapReduceCounterCommand extends Configured implements Tool, Command
     @Override
     public void execute(String[] args) {
        try {
+           if (args.length!=2){
+               System.err.println("Missing arguments");
+               System.exit(2);
+           }
+
            int exitCode = ToolRunner.run(new MapReduceCounterCommand(), args);
            System.exit(exitCode);
        } catch (Exception ex){

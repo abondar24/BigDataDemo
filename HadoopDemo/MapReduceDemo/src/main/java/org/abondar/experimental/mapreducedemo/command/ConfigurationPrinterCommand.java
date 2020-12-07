@@ -32,6 +32,11 @@ public class ConfigurationPrinterCommand extends Configured implements Tool, Com
     @Override
     public void execute(String[] args) {
         try {
+            if (args.length!=2){
+                System.err.println("Missing arguments");
+                System.exit(2);
+            }
+
             int exitCode = ToolRunner.run(new ConfigurationPrinterCommand(), new String[]{"hadoop-cluster.xml"});
             System.exit(exitCode);
         } catch (Exception ex){

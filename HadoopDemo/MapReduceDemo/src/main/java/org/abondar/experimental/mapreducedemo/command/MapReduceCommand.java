@@ -19,7 +19,7 @@ public class MapReduceCommand implements Command {
     public void execute(String[] args) {
         if (args.length != 2) {
             System.err.println("Usage: mrc <input path> <output path>");
-            System.exit(-1);
+            System.exit(2);
         }
 
         Configuration conf = new Configuration();
@@ -41,7 +41,7 @@ public class MapReduceCommand implements Command {
             System.exit(job.waitForCompletion(true) ? 0 : 1);
         } catch (Exception ex){
             System.err.println(ex.getMessage());
-            System.exit(2);
+            System.exit(512);
         }
     }
 }

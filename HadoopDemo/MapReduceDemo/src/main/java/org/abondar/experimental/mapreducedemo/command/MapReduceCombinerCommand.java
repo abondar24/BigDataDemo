@@ -22,7 +22,7 @@ public class MapReduceCombinerCommand implements Command {
         try {
             if (args.length != 2) {
                 System.err.println("Usage: mrcc <input path> <output path>");
-                System.exit(-1);
+                System.exit(2);
             }
 
             Configuration conf = new Configuration();
@@ -45,7 +45,7 @@ public class MapReduceCombinerCommand implements Command {
             System.exit(job.waitForCompletion(true) ? 0 : 1);
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
-            System.exit(2);
+            System.exit(512);
         }
     }
 }

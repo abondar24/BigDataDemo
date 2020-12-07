@@ -14,18 +14,18 @@ public class MissingTemperatureFieldsCommand extends Configured implements Tool,
         if (args.length != 1) {
             System.err.println("Usage: mtfc job_id");
             ToolRunner.printGenericCommandUsage(System.err);
-            return -1;
+            return 2;
         }
         String jobID = args[0];
         Cluster cluster = new Cluster(getConf());
         Job job = cluster.getJob(JobID.forName(jobID));
         if (job == null) {
             System.err.printf("No job with ID %s found.\n", jobID);
-            return -1;
+            return 3;
         }
         if (!job.isComplete()) {
             System.err.printf("Job %s is not complete\n", jobID);
-            return -1;
+            return 4;
         }
 
         Counters counters = job.getCounters();
