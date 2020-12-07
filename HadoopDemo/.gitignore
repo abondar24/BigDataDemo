@@ -1,0 +1,10 @@
+.idea
+
+MapReduceDemo/target
+HDFSdemo/target
+DataIntegrity/target
+
+HadoopDemo.iml
+MapReduceDemo/MapReduceDemo.iml
+DataIntegrity/DataIntegrity.iml
+HDFSdemo/HDFSdemo.iml
