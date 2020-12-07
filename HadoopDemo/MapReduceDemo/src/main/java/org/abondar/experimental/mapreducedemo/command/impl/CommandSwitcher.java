@@ -1,6 +1,7 @@
 package org.abondar.experimental.mapreducedemo.command.impl;
 
-import org.abondar.experimental.mapreducedemo.command.BasicMapReduceCommand;
+import org.abondar.experimental.mapreducedemo.command.MapReduceCombinerCommand;
+import org.abondar.experimental.mapreducedemo.command.MapReduceCommand;
 
 import java.util.Arrays;
 
@@ -19,9 +20,14 @@ public class CommandSwitcher {
         try {
 
             switch (Commands.valueOf(cmd)){
-                case BMR:
-                    BasicMapReduceCommand bmr = new BasicMapReduceCommand();
+                case MRC:
+                    MapReduceCommand bmr = new MapReduceCommand();
                     executor.executeCommand(bmr,args);
+                    break;
+
+                case MRCC:
+                    MapReduceCombinerCommand mrcc = new MapReduceCombinerCommand();
+                    executor.executeCommand(mrcc,args);
                     break;
             }
 

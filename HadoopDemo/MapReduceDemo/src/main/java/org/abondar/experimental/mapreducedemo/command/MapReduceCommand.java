@@ -12,13 +12,13 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-import java.io.IOException;
 
-public class BasicMapReduceCommand implements Command {
+
+public class MapReduceCommand implements Command {
     @Override
     public void execute(String[] args) {
         if (args.length != 2) {
-            System.err.println("Usage: MaxTemperature <input path> <output path>");
+            System.err.println("Usage: mrc <input path> <output path>");
             System.exit(-1);
         }
 
@@ -43,7 +43,5 @@ public class BasicMapReduceCommand implements Command {
             System.err.println(ex.getMessage());
             System.exit(1);
         }
-
-
     }
 }

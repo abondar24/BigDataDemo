@@ -5,7 +5,8 @@ Set of map reduces demos. Demos work temperature data from National Climatic Dat
 
 ## Demos
 
-1. Basic Mapreduce (bmr)- Basic mapreduce finding maximum temperature.
+1. Map Reduce (mrc) - Basic map reduce finding maximum temperature.
+2. Map Reduce Combiner (mrcc) - Map reduce with data combiner.
 
 
 ## Build and Run
