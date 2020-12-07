@@ -1,5 +1,6 @@
 package org.abondar.experimental.mapreducedemo.command.impl;
 
+import org.abondar.experimental.mapreducedemo.command.ConfigurationPrinterCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceCombinerCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceCommand;
 
@@ -20,6 +21,12 @@ public class CommandSwitcher {
         try {
 
             switch (Commands.valueOf(cmd)){
+
+                case CPC:
+                    ConfigurationPrinterCommand cpc = new ConfigurationPrinterCommand();
+                    executor.executeCommand(cpc,args);
+                    break;
+
                 case MRC:
                     MapReduceCommand bmr = new MapReduceCommand();
                     executor.executeCommand(bmr,args);

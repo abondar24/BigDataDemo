@@ -1,6 +1,7 @@
 package org.abondar.experimental.mapreducedemo.command;
 
 
+import org.abondar.experimental.mapreducedemo.command.impl.Command;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.util.Tool;
@@ -8,7 +9,7 @@ import org.apache.hadoop.util.ToolRunner;
 
 import java.util.Map;
 
-public class ConfigurationPrinter extends Configured implements Tool {
+public class ConfigurationPrinterCommand extends Configured implements Tool, Command {
 
     static {
         Configuration.addDefaultResource("hadoop-cluster.xml");
@@ -18,7 +19,7 @@ public class ConfigurationPrinter extends Configured implements Tool {
 
 
     @Override
-    public int run(String[] strings) throws Exception {
+    public int run(String[] strings)  {
         Configuration conf = getConf();
         for (Map.Entry<String, String> entry : conf) {
             System.out.printf("%s=%s\n", entry.getKey(), entry.getValue());
@@ -26,8 +27,17 @@ public class ConfigurationPrinter extends Configured implements Tool {
         return 0;
     }
 
-    public static void main(String[] args) throws Exception {
-        int exitCode = ToolRunner.run(new ConfigurationPrinter(), new String[]{"hadoop-cluster.xml"});
-        System.exit(exitCode);
+
+
+    @Override
+    public void execute(String[] args) {
+        try {
+            int exitCode = ToolRunner.run(new ConfigurationPrinterCommand(), new String[]{"hadoop-cluster.xml"});
+            System.exit(exitCode);
+        } catch (Exception ex){
+            System.err.println(ex.getMessage());
+            System.exit(512);
+        }
+
     }
 }
