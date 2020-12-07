@@ -1,17 +1,18 @@
 package org.abondar.experimental.mapreducedemo.command;
 
 
+import org.abondar.experimental.mapreducedemo.command.impl.Command;
 import org.abondar.experimental.mapreducedemo.data.Temperature;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.mapreduce.*;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-public class MissingTemperatureFields extends Configured implements Tool {
+public class MissingTemperatureFieldsCommand extends Configured implements Tool, Command {
     @Override
     public int run(String[] args) throws Exception {
         if (args.length != 1) {
-            System.err.printf("Usage: %s [genericOptions] %s\n", getClass().getSimpleName());
+            System.err.println("Usage: mtfc job_id");
             ToolRunner.printGenericCommandUsage(System.err);
             return -1;
         }
@@ -37,8 +38,15 @@ public class MissingTemperatureFields extends Configured implements Tool {
         return 0;
     }
 
-    public static void main(String[] args) throws Exception {
-        int exitCode = ToolRunner.run(new MissingTemperatureFields(), args);
-        System.exit(exitCode);
+
+    @Override
+    public void execute(String[] args) {
+         try {
+             int exitCode = ToolRunner.run(new MissingTemperatureFieldsCommand(), args);
+             System.exit(exitCode);
+         } catch (Exception ex){
+             System.err.println(ex.getMessage());
+             System.exit(512);
+         }
     }
 }

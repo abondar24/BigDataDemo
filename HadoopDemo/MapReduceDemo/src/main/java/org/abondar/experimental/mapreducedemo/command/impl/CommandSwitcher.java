@@ -7,6 +7,7 @@ import org.abondar.experimental.mapreducedemo.command.MapReduceCompressorCommand
 import org.abondar.experimental.mapreducedemo.command.MapReduceCounterCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceDriverCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceMinimalCommand;
+import org.abondar.experimental.mapreducedemo.command.MissingTemperatureFieldsCommand;
 
 import java.util.Arrays;
 
@@ -29,6 +30,11 @@ public class CommandSwitcher {
                 case CPC:
                     ConfigurationPrinterCommand cpc = new ConfigurationPrinterCommand();
                     executor.executeCommand(cpc,args);
+                    break;
+
+                case MTFC:
+                    MissingTemperatureFieldsCommand mtfc = new MissingTemperatureFieldsCommand();
+                    executor.executeCommand(mtfc,args);
                     break;
 
                 case MRC:

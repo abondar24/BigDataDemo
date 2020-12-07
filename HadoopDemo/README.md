@@ -1,6 +1,6 @@
 # Hadoop Demo
 
-Set of Hadoop related demos
+Set of Hadoop related demos. Based on the book "Haddop: Definitive Guide" issued by O'Reilly.
 
 Demos are split into three modules:
 
