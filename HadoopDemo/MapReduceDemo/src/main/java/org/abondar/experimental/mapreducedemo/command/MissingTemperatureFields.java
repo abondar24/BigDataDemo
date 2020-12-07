@@ -1,6 +1,7 @@
 package org.abondar.experimental.mapreducedemo.command;
 
 
+import org.abondar.experimental.mapreducedemo.data.Temperature;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.mapreduce.*;
 import org.apache.hadoop.util.Tool;
@@ -27,7 +28,7 @@ public class MissingTemperatureFields extends Configured implements Tool {
         }
 
         Counters counters = job.getCounters();
-        long missing = counters.findCounter(MaxTemperatureWithCounters.Temperature.MISSING).getValue();
+        long missing = counters.findCounter(Temperature.MISSING).getValue();
         long total = counters.findCounter(TaskCounter.MAP_INPUT_RECORDS).getValue();
 
         System.out.printf("Records with missing temperature fields: %.2f%%\n",

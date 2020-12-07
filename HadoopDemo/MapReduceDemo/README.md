@@ -11,6 +11,7 @@ Set of map reduces demos. Demos work temperature data from National Climatic Dat
 4. Map Reduce Driver (mrdc) - Basic map reduce adopted to driver usage.
 5. Map Reduce Mimimal (mrmc) - Map reduce without custom mapper and reducer.
 6. Map Reduce Compressor (mrco) - Map reduce with data compressor.
+7. Map Reduce Counter (mrcn) - Map reduce including counting missing and malformed fields and quality codes.
 
 
 ## Build and Run

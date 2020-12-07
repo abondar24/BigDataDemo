@@ -1,6 +1,8 @@
 package org.abondar.experimental.mapreducedemo.command;
 
 
+import org.abondar.experimental.mapreducedemo.command.impl.Command;
+import org.abondar.experimental.mapreducedemo.data.Temperature;
 import org.abondar.experimental.mapreducedemo.parser.RecordParser;
 import org.abondar.experimental.mapreducedemo.reducer.MaxTemperatureReducer;
 import org.apache.hadoop.conf.Configured;
@@ -17,15 +19,11 @@ import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
 
-public class MaxTemperatureWithCounters extends Configured implements Tool {
+public class MapReduceCounterCommand extends Configured implements Tool, Command {
 
-    enum Temperature {
-        MISSING,
-        MALFORMED
-    }
 
     static class MaxTemperatureMapperWithCounters extends Mapper<LongWritable, Text, Text, IntWritable> {
-        private RecordParser parser = new RecordParser();
+        private final RecordParser parser = new RecordParser();
 
         @Override
         protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
@@ -62,8 +60,15 @@ public class MaxTemperatureWithCounters extends Configured implements Tool {
         return job.waitForCompletion(true) ? 0 : 1;
     }
 
-    public static void main(String[] args) throws Exception {
-        int exitCode = ToolRunner.run(new MaxTemperatureWithCounters(), args);
-        System.exit(exitCode);
+    @Override
+    public void execute(String[] args) {
+       try {
+           int exitCode = ToolRunner.run(new MapReduceCounterCommand(), args);
+           System.exit(exitCode);
+       } catch (Exception ex){
+           System.err.println(ex.getMessage());
+           System.exit(512);
+       }
     }
+
 }

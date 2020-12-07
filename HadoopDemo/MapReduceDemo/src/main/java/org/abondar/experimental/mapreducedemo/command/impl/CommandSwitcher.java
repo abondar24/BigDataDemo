@@ -4,6 +4,7 @@ import org.abondar.experimental.mapreducedemo.command.ConfigurationPrinterComman
 import org.abondar.experimental.mapreducedemo.command.MapReduceCombinerCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceCompressorCommand;
+import org.abondar.experimental.mapreducedemo.command.MapReduceCounterCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceDriverCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceMinimalCommand;
 
@@ -40,6 +41,16 @@ public class CommandSwitcher {
                     executor.executeCommand(mrcc,args);
                     break;
 
+                case MRCN:
+                    MapReduceCounterCommand mrcn = new MapReduceCounterCommand();
+                    executor.executeCommand(mrcn,args);
+                    break;
+
+                case MRCO:
+                    MapReduceCompressorCommand mrco = new MapReduceCompressorCommand();
+                    executor.executeCommand(mrco,args);
+                    break;
+
                 case MRDC:
                     MapReduceDriverCommand mrdc = new MapReduceDriverCommand();
                     executor.executeCommand(mrdc,args);
@@ -50,10 +61,7 @@ public class CommandSwitcher {
                     executor.executeCommand(mrmc,args);
                     break;
 
-                case MRCO:
-                    MapReduceCompressorCommand mrco = new MapReduceCompressorCommand();
-                    executor.executeCommand(mrco,args);
-                    break;
+
             }
 
         } catch (IllegalArgumentException ex){
