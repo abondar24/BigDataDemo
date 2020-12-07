@@ -9,43 +9,45 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.compress.GzipCodec;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class MapReduceCombinerCommand implements Command {
-
+public class MapReduceCompressorCommand implements Command {
 
     @Override
     public void execute(String[] args) {
 
         try {
             if (args.length != 2) {
-                System.err.println("Usage: mrcc <input path> <output path>");
+                System.err.println("Usage: mrco <input path> <output path>");
                 System.exit(-1);
             }
 
             Configuration conf = new Configuration();
 
-
-            Job job = Job.getInstance(conf, "Max temperature");
+            Job job = Job.getInstance(conf,"Max temperature");
             job.setJarByClass(Main.class);
             job.setJobName("Max temperature");
             job.setMapperClass(MaxTemperatureMapper.class);
-            job.setReducerClass(MaxTemperatureReducer.class);
-            job.setCombinerClass(MaxTemperatureReducer.class);
             job.setOutputKeyClass(Text.class);
             job.setOutputValueClass(IntWritable.class);
-
+            job.setReducerClass(MaxTemperatureReducer.class);
 
             FileInputFormat.addInputPath(job, new Path(args[0]));
-            FileOutputFormat.setOutputPath(job, new Path(args[1]));
+            FileOutputFormat.setOutputPath(job,new Path(args[1]));
+
+            FileOutputFormat.setCompressOutput(job,true);
+            FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
 
 
             System.exit(job.waitForCompletion(true) ? 0 : 1);
-        } catch (Exception ex) {
+
+        } catch (Exception ex){
             System.err.println(ex.getMessage());
-            System.exit(2);
+            System.exit(512);
         }
+
     }
 }

@@ -41,7 +41,7 @@ public class MapReduceCommand implements Command {
             System.exit(job.waitForCompletion(true) ? 0 : 1);
         } catch (Exception ex){
             System.err.println(ex.getMessage());
-            System.exit(1);
+            System.exit(2);
         }
     }
 }

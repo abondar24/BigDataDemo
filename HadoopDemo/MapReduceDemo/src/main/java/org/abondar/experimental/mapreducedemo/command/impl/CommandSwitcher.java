@@ -3,7 +3,9 @@ package org.abondar.experimental.mapreducedemo.command.impl;
 import org.abondar.experimental.mapreducedemo.command.ConfigurationPrinterCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceCombinerCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceCommand;
+import org.abondar.experimental.mapreducedemo.command.MapReduceCompressorCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceDriverCommand;
+import org.abondar.experimental.mapreducedemo.command.MapReduceMinimalCommand;
 
 import java.util.Arrays;
 
@@ -29,8 +31,8 @@ public class CommandSwitcher {
                     break;
 
                 case MRC:
-                    MapReduceCommand bmr = new MapReduceCommand();
-                    executor.executeCommand(bmr,args);
+                    MapReduceCommand mrc = new MapReduceCommand();
+                    executor.executeCommand(mrc,args);
                     break;
 
                 case MRCC:
@@ -41,6 +43,16 @@ public class CommandSwitcher {
                 case MRDC:
                     MapReduceDriverCommand mrdc = new MapReduceDriverCommand();
                     executor.executeCommand(mrdc,args);
+                    break;
+
+                case MRMC:
+                    MapReduceMinimalCommand mrmc = new MapReduceMinimalCommand();
+                    executor.executeCommand(mrmc,args);
+                    break;
+
+                case MRCO:
+                    MapReduceCompressorCommand mrco = new MapReduceCompressorCommand();
+                    executor.executeCommand(mrco,args);
                     break;
             }
 

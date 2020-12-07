@@ -5,10 +5,12 @@ Set of map reduces demos. Demos work temperature data from National Climatic Dat
 
 ## Demos
 
-1. Map Reduce (mrc) - Basic map reduce finding maximum temperature.
-2. Map Reduce Combiner (mrcc) - Map reduce with data combiner.
-3. Configuration Printer (cpc) - Print hadoop configuration info.
+1. Configuration Printer (cpc) - Print hadoop configuration info.
+2. Map Reduce (mrc) - Basic map reduce finding maximum temperature.
+3. Map Reduce Combiner (mrcc) - Map reduce with data combiner.
 4. Map Reduce Driver (mrdc) - Basic map reduce adopted to driver usage.
+5. Map Reduce Mimimal (mrmc) - Map reduce without custom mapper and reducer.
+6. Map Reduce Compressor (mrco) - Map reduce with data compressor.
 
 
 ## Build and Run

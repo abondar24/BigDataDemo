@@ -6,4 +6,6 @@ public enum Commands {
     MRC,
     MRCC,
     MRDC,
+    MRMC,
+    MRCO,
 }
