@@ -17,7 +17,7 @@ public class MapReduceMinimalCommand extends Configured implements Tool, Command
         if (args.length != 2) {
             System.err.println("Usage: mrmc <input> <output>");
             ToolRunner.printGenericCommandUsage(System.err);
-            return -1;
+            return 2;
         }
 
         Job job = Job.getInstance(getConf());

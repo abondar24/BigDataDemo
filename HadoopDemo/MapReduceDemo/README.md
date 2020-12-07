@@ -13,6 +13,8 @@ Set of map reduces demos. Demos work temperature data from National Climatic Dat
 6. Map Reduce Compressor (mrco) - Map reduce with data compressor.
 7. Map Reduce Counter (mrcn) - Map reduce including counting missing and malformed fields and quality codes.
 8. Missing Temperature fields (mtfc) - Calculate the proportion of records with missing temperature fields.
+9. Sort Data Preprocessor (sdpc) - Transform the weather data into Sequence File format
+
 
 ## Build and Run
 ```

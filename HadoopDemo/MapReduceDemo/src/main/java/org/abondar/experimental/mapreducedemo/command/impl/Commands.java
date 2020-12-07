@@ -10,4 +10,5 @@ public enum Commands {
     MRMC,
     MRCO,
     MRCN,
+    SDPC,
 }

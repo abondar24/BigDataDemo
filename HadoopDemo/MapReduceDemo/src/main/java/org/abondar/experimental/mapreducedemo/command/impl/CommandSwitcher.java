@@ -8,6 +8,7 @@ import org.abondar.experimental.mapreducedemo.command.MapReduceCounterCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceDriverCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceMinimalCommand;
 import org.abondar.experimental.mapreducedemo.command.MissingTemperatureFieldsCommand;
+import org.abondar.experimental.mapreducedemo.command.SortDataPreprocessorCommand;
 
 import java.util.Arrays;
 
@@ -65,6 +66,11 @@ public class CommandSwitcher {
                 case MRMC:
                     MapReduceMinimalCommand mrmc = new MapReduceMinimalCommand();
                     executor.executeCommand(mrmc,args);
+                    break;
+
+                case SDPC:
+                    SortDataPreprocessorCommand sdpc = new SortDataPreprocessorCommand();
+                    executor.executeCommand(sdpc,args);
                     break;
 
 

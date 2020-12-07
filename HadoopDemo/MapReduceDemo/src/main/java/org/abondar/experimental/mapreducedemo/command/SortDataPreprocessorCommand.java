@@ -1,6 +1,7 @@
 package org.abondar.experimental.mapreducedemo.command;
 
 
+import org.abondar.experimental.mapreducedemo.command.impl.Command;
 import org.abondar.experimental.mapreducedemo.parser.RecordParser;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
@@ -19,10 +20,10 @@ import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
 
-public class SortDataPreprocessor extends Configured implements Tool {
+public class SortDataPreprocessorCommand extends Configured implements Tool, Command {
 
     static class CleanerMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
-        private RecordParser parser = new RecordParser();
+        private final RecordParser parser = new RecordParser();
 
         @Override
         protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
@@ -53,8 +54,20 @@ public class SortDataPreprocessor extends Configured implements Tool {
     }
 
 
-    public static void main(String[] args) throws Exception {
-        int exitCode = ToolRunner.run(new SortDataPreprocessor(), args);
-        System.exit(exitCode);
+
+    @Override
+    public void execute(String[] args) {
+      try {
+          int exitCode = ToolRunner.run(new SortDataPreprocessorCommand(), args);
+          if (args.length!=2){
+              System.err.println("Missing arguments");
+              System.exit(2);
+          }
+
+          System.exit(exitCode);
+      } catch (Exception ex){
+          System.err.println(ex.getMessage());
+          System.exit(512);
+      }
     }
 }
