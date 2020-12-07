@@ -1,6 +1,7 @@
 package org.abondar.experimental.mapreducedemo.command;
 
 
+import org.abondar.experimental.mapreducedemo.command.impl.Command;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
@@ -14,7 +15,7 @@ import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-public class SortTemperatureByHashPartitioner extends Configured implements Tool {
+public class SortTemperatureHashPartitionerCommand extends Configured implements Tool, Command {
     @Override
     public int run(String[] args) throws Exception {
         Job job = Job.getInstance(getConf());
@@ -34,8 +35,19 @@ public class SortTemperatureByHashPartitioner extends Configured implements Tool
     }
 
 
-    public static void main(String[] args) throws Exception {
-        int exitCode = ToolRunner.run(new SortTemperatureByHashPartitioner(), args);
-        System.exit(exitCode);
+    @Override
+    public void execute(String[] args) {
+        try {
+            int exitCode = ToolRunner.run(new SortTemperatureHashPartitionerCommand(), args);
+            if (args.length != 2) {
+                System.err.println("Missing arguments");
+                System.exit(2);
+            }
+
+            System.exit(exitCode);
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            System.exit(512);
+        }
     }
 }

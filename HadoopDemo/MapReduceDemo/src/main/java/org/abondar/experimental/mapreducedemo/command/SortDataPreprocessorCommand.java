@@ -57,17 +57,17 @@ public class SortDataPreprocessorCommand extends Configured implements Tool, Com
 
     @Override
     public void execute(String[] args) {
-      try {
-          int exitCode = ToolRunner.run(new SortDataPreprocessorCommand(), args);
-          if (args.length!=2){
-              System.err.println("Missing arguments");
-              System.exit(2);
-          }
+        try {
+            int exitCode = ToolRunner.run(new SortDataPreprocessorCommand(), args);
+            if (args.length != 2) {
+                System.err.println("Missing arguments");
+                System.exit(2);
+            }
 
-          System.exit(exitCode);
-      } catch (Exception ex){
-          System.err.println(ex.getMessage());
-          System.exit(512);
-      }
+            System.exit(exitCode);
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            System.exit(512);
+        }
     }
 }

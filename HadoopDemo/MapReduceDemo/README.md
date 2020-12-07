@@ -12,8 +12,9 @@ Set of map reduces demos. Demos work temperature data from National Climatic Dat
 5. Map Reduce Mimimal (mrmc) - Map reduce without custom mapper and reducer.
 6. Map Reduce Compressor (mrco) - Map reduce with data compressor.
 7. Map Reduce Counter (mrcn) - Map reduce including counting missing and malformed fields and quality codes.
-8. Missing Temperature fields (mtfc) - Calculate the proportion of records with missing temperature fields.
-9. Sort Data Preprocessor (sdpc) - Transform the weather data into Sequence File format
+8. Missing Temperature Fields (mtfc) - Calculate the proportion of records with missing temperature fields.
+9. Sort Data Preprocessor (sdpc) - Transform the weather data into Sequence File format.
+10. Sort Temperature Hash Partitioner (sthp) - Sorting a SequenceFile with IntWritable keys using the default HashPartitioner.
 
 
 ## Build and Run
@@ -31,4 +32,5 @@ cd <hadoop-dir>/bin
 - Argument with demo name is in ().
 - Configuration printer requires no input files.
 - Use different out directories for demos or remove  after previous run.
-- Missing Temperature fields requires job id argument(format job_1410450250506_0007) instead of input data.
+- Missing Temperature Fields requires job id argument(format job_1410450250506_0007) instead of input data. Any map reduce job must be run before this demo
+- Sort Temperature Hash Partitioner requires sequence file which is an output of Sort Data Preprocessor.

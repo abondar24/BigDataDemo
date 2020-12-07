@@ -9,6 +9,7 @@ import org.abondar.experimental.mapreducedemo.command.MapReduceDriverCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceMinimalCommand;
 import org.abondar.experimental.mapreducedemo.command.MissingTemperatureFieldsCommand;
 import org.abondar.experimental.mapreducedemo.command.SortDataPreprocessorCommand;
+import org.abondar.experimental.mapreducedemo.command.SortTemperatureHashPartitionerCommand;
 
 import java.util.Arrays;
 
@@ -71,6 +72,11 @@ public class CommandSwitcher {
                 case SDPC:
                     SortDataPreprocessorCommand sdpc = new SortDataPreprocessorCommand();
                     executor.executeCommand(sdpc,args);
+                    break;
+
+                case STHP:
+                    SortTemperatureHashPartitionerCommand stpc = new SortTemperatureHashPartitionerCommand();
+                    executor.executeCommand(stpc,args);
                     break;
 
 
