@@ -5,4 +5,5 @@ public enum Commands {
     CPC,
     MRC,
     MRCC,
+    MRDC,
 }
