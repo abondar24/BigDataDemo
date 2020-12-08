@@ -1,6 +1,7 @@
 package org.abondar.experimental.mapreducedemo.command;
 
 
+import org.abondar.experimental.mapreducedemo.command.impl.Command;
 import org.abondar.experimental.mapreducedemo.parser.RecordParser;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
@@ -18,10 +19,11 @@ import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
 
-public class PartitionByStationUsingMultipleOutputs extends Configured implements Tool {
+public class PartitionByStationCommand extends Configured implements Tool, Command {
+
 
     static class StationMapper extends Mapper<LongWritable, Text, Text, Text> {
-        private RecordParser parser = new RecordParser();
+        private final RecordParser parser = new RecordParser();
 
         @Override
         protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
@@ -70,8 +72,21 @@ public class PartitionByStationUsingMultipleOutputs extends Configured implement
         return job.waitForCompletion(true) ? 0 : 1;
     }
 
-    public static void main(String[] args) throws Exception {
-        int exitCode = ToolRunner.run(new SequenceFileConverterCommand(),args);
-        System.exit(exitCode);
+    @Override
+    public void execute(String[] args) {
+        try {
+            int exitCode = ToolRunner.run(new PartitionByStationCommand(),args);
+            if (args.length != 2) {
+                System.err.println("Missing arguments");
+                System.exit(2);
+            }
+
+            System.exit(exitCode);
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            System.exit(512);
+        }
     }
+
+
 }

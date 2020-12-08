@@ -20,7 +20,7 @@ Set of map reduces demos. Demos work temperature data from National Climatic Dat
 13. Map Reduce Secondary Sort (mrss) - Map Reduce with sorting temperatures in the key sorting temperatures in the key.
 14. Map Reduce Station Dist Cache File (mrsd) - Map Reduce with station, showing station names from a lookup table passed as a distributed cache file.
 15. Join Record Command (jrc) - Join weather records with station names.
-
+16. Partition By Station (psc) - Partition dataset into files named by the station ID using MultipleOutputs.
 
 ## Build and Run
 ```

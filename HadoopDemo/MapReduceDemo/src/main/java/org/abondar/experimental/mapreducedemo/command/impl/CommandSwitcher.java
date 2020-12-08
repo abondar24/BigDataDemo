@@ -11,6 +11,7 @@ import org.abondar.experimental.mapreducedemo.command.MapReduceMinimalCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceSecondarySortCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceStationDistCacheFileCommand;
 import org.abondar.experimental.mapreducedemo.command.MissingTemperatureFieldsCommand;
+import org.abondar.experimental.mapreducedemo.command.PartitionByStationCommand;
 import org.abondar.experimental.mapreducedemo.command.SequenceFileConverterCommand;
 import org.abondar.experimental.mapreducedemo.command.SortDataPreprocessorCommand;
 import org.abondar.experimental.mapreducedemo.command.SortTemperatureHashPartitionerCommand;
@@ -92,6 +93,11 @@ public class CommandSwitcher {
                 case SDPC:
                     SortDataPreprocessorCommand sdpc = new SortDataPreprocessorCommand();
                     executor.executeCommand(sdpc,args);
+                    break;
+
+                case PSC:
+                    PartitionByStationCommand psc = new PartitionByStationCommand();
+                    executor.executeCommand(psc,args);
                     break;
 
                 case SFCC:
