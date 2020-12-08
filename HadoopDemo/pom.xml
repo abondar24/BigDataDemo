@@ -9,10 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>Command</module>
         <module>HdfsDemo</module>
         <module>DataIntegrity</module>
         <module>MapReduceDemo</module>
-        <module>Command</module>
 
     </modules>
 

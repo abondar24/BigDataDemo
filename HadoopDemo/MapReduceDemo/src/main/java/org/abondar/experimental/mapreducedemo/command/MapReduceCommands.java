@@ -1,4 +1,4 @@
-package org.abondar.experimental.hadoopdemo.command;
+package org.abondar.experimental.mapreducedemo.command;
 
 public enum MapReduceCommands {
 

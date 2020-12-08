@@ -1,7 +1,6 @@
 package org.abondar.experimental.hdfsdemo.command;
 
 import org.abondar.experimental.hadoopdemo.command.AbstractCommandSwitcher;
-import org.abondar.experimental.hadoopdemo.command.HdfsCommands;
 
 
 public class CommandSwitcher extends AbstractCommandSwitcher {
@@ -13,7 +12,10 @@ public class CommandSwitcher extends AbstractCommandSwitcher {
         try {
 
             switch (HdfsCommands.valueOf(cmd)) {
-
+                case CFC:
+                    CopyFileCommand cfc =  new CopyFileCommand();
+                    executor.executeCommand(cfc,args);
+                    break;
 
 
             }

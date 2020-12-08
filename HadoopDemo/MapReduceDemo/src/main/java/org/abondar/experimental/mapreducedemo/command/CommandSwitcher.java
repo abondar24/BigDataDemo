@@ -1,7 +1,6 @@
 package org.abondar.experimental.mapreducedemo.command;
 
 import org.abondar.experimental.hadoopdemo.command.AbstractCommandSwitcher;
-import org.abondar.experimental.hadoopdemo.command.MapReduceCommands;
 
 
 public class CommandSwitcher extends AbstractCommandSwitcher {
