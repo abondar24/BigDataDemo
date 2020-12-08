@@ -11,6 +11,7 @@ public enum Commands {
     MRCO,
     MRCN,
     SDPC,
+    SFCC,
     STHP,
     STTO,
 }

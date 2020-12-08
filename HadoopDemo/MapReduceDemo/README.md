@@ -14,8 +14,9 @@ Set of map reduces demos. Demos work temperature data from National Climatic Dat
 7. Map Reduce Counter (mrcn) - Map reduce including counting missing and malformed fields and quality codes.
 8. Missing Temperature Fields (mtfc) - Calculate the proportion of records with missing temperature fields.
 9. Sort Data Preprocessor (sdpc) - Transform the weather data into Sequence File format.
-10. Sort Temperature Hash Partitioner (sthp) - Sort a SequenceFile with IntWritable keys using the default HashPartitioner.
-11. Sort Temperature Total Order Partitioner (stto) - Sort a SequenceFile with IntWritable keys using the TotalOrderPartitioner to globally sort the data
+10. Sequence File Converter (sfcc) - Package a collection of small files as a single SequenceFile
+11. Sort Temperature Hash Partitioner (sthp) - Sort a SequenceFile with IntWritable keys using the default HashPartitioner.
+12. Sort Temperature Total Order Partitioner (stto) - Sort a SequenceFile with IntWritable keys using the TotalOrderPartitioner to globally sort the data
 
 ## Build and Run
 ```
@@ -33,5 +34,5 @@ cd <hadoop-dir>/bin
 - Configuration printer requires no input files.
 - Use different out directories for demos or remove  after previous run.
 - Missing Temperature Fields requires job id argument(format job_1410450250506_0007) instead of input data. Any map reduce job must be run before this demo
-- Sort Temperature Hash Partitioner requires sequence file which is an output of Sort Data Preprocessor.
-- Sort Temperature Total Order Partitioner requires sequence file which is an output of Sort Data Preprocessor.
+- Sort Temperature Hash Partitioner requires sequence file which is an output of Sort Data Preprocessor or Sequence File Converter.
+- Sort Temperature Total Order Partitioner requires sequence file which is an output of Sort Data Preprocessor or Sequence File Converter.

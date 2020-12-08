@@ -71,7 +71,7 @@ public class PartitionByStationUsingMultipleOutputs extends Configured implement
     }
 
     public static void main(String[] args) throws Exception {
-        int exitCode = ToolRunner.run(new SmallFilesToSequenceFileConverter(),args);
+        int exitCode = ToolRunner.run(new SequenceFileConverterCommand(),args);
         System.exit(exitCode);
     }
 }
