@@ -16,6 +16,11 @@ public class CommandSwitcher extends AbstractCommandSwitcher {
                     executor.executeCommand(fdc,args);
                     break;
 
+                case SCC:
+                    StreamCompressorCommand scc = new StreamCompressorCommand();
+                    executor.executeCommand(scc,args);
+                    break;
+
                 case SFWC:
                     SequenceFileWriteCommand sfwc = new SequenceFileWriteCommand();
                     executor.executeCommand(sfwc,args);
