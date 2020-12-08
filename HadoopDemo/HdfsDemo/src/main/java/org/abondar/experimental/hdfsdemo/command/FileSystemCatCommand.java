@@ -1,6 +1,7 @@
 package org.abondar.experimental.hdfsdemo.command;
 
 
+import org.abondar.experimental.hadoopdemo.command.Command;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
@@ -11,8 +12,10 @@ import java.io.InputStream;
 import java.net.URI;
 
 
-public class FileSystemCat {
-    public static void main(String[] args) {
+public class FileSystemCatCommand  implements Command {
+
+    @Override
+    public void execute(String[] args) {
         String uri = args[0];
         Configuration configuration = new Configuration();
         InputStream is = null;

@@ -4,7 +4,8 @@ Several examples of Hadoop Distributes File System usage.
 
 ## Demos
 
-1. Copy File (cfc) - Copy a file from local file system to hdfs
+1. Copy File (cfc) - Copy a file from local file system to HDFS.
+2. File System Cat (fscc) - Show contents of file on stored in HDFS.
 
 ## Build and Run
 ```
@@ -20,3 +21,4 @@ cd <hadoop-dir>/bin
 - Argument with demo name is in ().
 - Demo data is in Input data directory.
 - Copy File requires and additional argument - directory name on hadoop fs. Format hdfs://localhost/<user>/<path>/<file-name>
+- Inpunt files for demo 2-5 must be on hdfs. Copy them using Copy File demo.
