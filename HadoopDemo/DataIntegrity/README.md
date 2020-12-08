@@ -4,7 +4,7 @@ Several examples of working with data before running actual Map Reduce
 
 ## Demos
 
-1. 
+1. File Decompress (fdc) - decompress archive file using a codec.
 ## Build and Run
 ```
 mvn clean install
@@ -18,6 +18,4 @@ cd <hadoop-dir>/bin
 
 - Argument with demo name is in ().
 - Demo data is in Input data directory.
-- Copy File requires and additional argument - directory name on hadoop fs. Format hdfs://localhost/<user>/<path>/<file-name>
-- Input files for demo 2-5 must be on hdfs. Copy them using Copy File demo.
-- List status requires path to HDFS directory instead of file.
+- File decompress requires a .gz archive

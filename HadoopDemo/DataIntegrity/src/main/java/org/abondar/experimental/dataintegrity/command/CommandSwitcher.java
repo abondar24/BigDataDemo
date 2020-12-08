@@ -11,8 +11,10 @@ public class CommandSwitcher extends AbstractCommandSwitcher {
         try {
 
             switch (Commands.valueOf(cmd)) {
-
-
+                case FDC:
+                    FileDecompressorCommand fdc = new FileDecompressorCommand();
+                    executor.executeCommand(fdc,args);
+                    break;
 
             }
 

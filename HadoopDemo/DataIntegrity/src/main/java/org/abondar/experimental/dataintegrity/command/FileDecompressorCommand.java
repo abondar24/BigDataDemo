@@ -1,6 +1,7 @@
 package org.abondar.experimental.dataintegrity.command;
 
 
+import org.abondar.experimental.hadoopdemo.command.Command;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
@@ -13,8 +14,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URI;
 
-public class FileDecompressor {
-    public static void main(String[] args) {
+public class FileDecompressorCommand implements Command {
+
+    @Override
+    public void execute(String[] args) {
         String uri = args[0];
         Configuration conf = new Configuration();
 
@@ -42,6 +45,5 @@ public class FileDecompressor {
             IOUtils.closeStream(in);
             IOUtils.closeStream(out);
         }
-
     }
 }
