@@ -8,7 +8,7 @@ Several examples of Hadoop Distributes File System usage.
 2. File System Cat (fscc) - Show contents of file on stored in HDFS.
 3. File System Double Cat (fsdc) - Show contents of file on stored in HDFS twice using seek.
 4. List status (lsc) - Show file statuses for path.
-
+5. Url Cat (ucc) - Show file contents from HDFS using URLStreamHandler
 
 ## Build and Run
 ```

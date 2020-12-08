@@ -1,6 +1,7 @@
 package org.abondar.experimental.hdfsdemo.command;
 
 
+import org.abondar.experimental.hadoopdemo.command.Command;
 import org.apache.hadoop.fs.FsUrlStreamHandlerFactory;
 import org.apache.hadoop.io.IOUtils;
 
@@ -9,13 +10,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-public class URLCat {
+public class UrlCatCommand implements Command {
 
     static {
         URL.setURLStreamHandlerFactory(new FsUrlStreamHandlerFactory());
     }
 
-    public static void main(String[] args) {
+
+    @Override
+    public void execute(String[] args) {
         InputStream is = null;
         try {
             is = new URL(args[0]).openStream();

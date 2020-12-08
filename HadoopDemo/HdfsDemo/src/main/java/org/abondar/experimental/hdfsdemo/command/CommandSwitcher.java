@@ -32,6 +32,11 @@ public class CommandSwitcher extends AbstractCommandSwitcher {
                     executor.executeCommand(lsc,args);
                     break;
 
+                case UCC:
+                    UrlCatCommand ucc = new UrlCatCommand();
+                    executor.executeCommand(ucc,args);
+                    break;
+
 
             }
 
