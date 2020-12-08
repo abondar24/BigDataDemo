@@ -4,4 +4,5 @@ public enum HdfsCommands {
     CFC,
     FSCC,
     FSDC,
+    LSC,
 }

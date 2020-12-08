@@ -27,6 +27,11 @@ public class CommandSwitcher extends AbstractCommandSwitcher {
                     executor.executeCommand(fsds,args);
                     break;
 
+                case LSC:
+                    ListStatusCommand lsc = new ListStatusCommand();
+                    executor.executeCommand(lsc,args);
+                    break;
+
 
             }
 
