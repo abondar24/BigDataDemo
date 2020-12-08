@@ -1,4 +1,4 @@
-package org.abondar.experimental.kafkademo.dataintegrity;
+package org.abondar.experimental.dataintegrity.command;
 
 
 
