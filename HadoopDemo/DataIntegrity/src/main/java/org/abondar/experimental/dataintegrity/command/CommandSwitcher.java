@@ -16,6 +16,11 @@ public class CommandSwitcher extends AbstractCommandSwitcher {
                     executor.executeCommand(fdc,args);
                     break;
 
+                case PSCC:
+                    PooledStreamCompressor pscc = new PooledStreamCompressor();
+                    executor.executeCommand(pscc,args);
+                    break;
+
                 case SCC:
                     StreamCompressorCommand scc = new StreamCompressorCommand();
                     executor.executeCommand(scc,args);

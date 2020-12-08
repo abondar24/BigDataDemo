@@ -9,6 +9,7 @@ Several examples of working with data before running actual Map Reduce
 3. Sequence File Write (sfwc) - Write hardcoded data to sequence file.
 4. Sequence File Read (sfrc) - Reade conents of sequence file.
 5. Stream Compressor (scc) - Compress incoming data from standard input using codec.
+6. Pooled Stream Compressor (pscc) - Stream compressor using compressor poool.
 
 ## Build and Run
 ```
@@ -27,4 +28,4 @@ cd <hadoop-dir>/bin
 - Text iterator doesn't require any input file.
 - Sequence File Write accepts output sequence file name as second argument instead of input file. File format ```some-name.seq```
 - Sequence File Read accepts input sequence file name in  format ```some-name.seq```
-- Stream Compressor requires as second argument classname of codec. Example codec: ```org.apache.hadoop.io.compress.GzipCodec```
+- Demos 5-6 require as second argument classname of codec. Example codec: ```org.apache.hadoop.io.compress.GzipCodec```
