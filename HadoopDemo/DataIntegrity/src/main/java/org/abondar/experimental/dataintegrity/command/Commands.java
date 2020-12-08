@@ -4,5 +4,6 @@ public enum Commands {
 
     FDC,
     SFWC,
+    SFRC,
     TIC,
 }

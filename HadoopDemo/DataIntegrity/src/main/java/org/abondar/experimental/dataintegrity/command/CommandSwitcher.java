@@ -21,6 +21,11 @@ public class CommandSwitcher extends AbstractCommandSwitcher {
                     executor.executeCommand(sfwc,args);
                     break;
 
+                case SFRC:
+                    SequenceFileReadCommand sfrc = new SequenceFileReadCommand();
+                    executor.executeCommand(sfrc,args);
+                    break;
+
                 case TIC:
                     TextIteratorCommand tic = new TextIteratorCommand();
                     executor.executeCommand(tic,args);

@@ -1,6 +1,7 @@
 package org.abondar.experimental.dataintegrity.command;
 
 
+import org.abondar.experimental.hadoopdemo.command.Command;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IOUtils;
@@ -10,8 +11,10 @@ import org.apache.hadoop.util.ReflectionUtils;
 
 import java.io.IOException;
 
-public class SequenceFileReadDemo {
-    public static void main(String[] args) {
+public class SequenceFileReadCommand implements Command {
+
+    @Override
+    public void execute(String[] args) {
         String uri = args[0];
         Configuration conf = new Configuration();
         Path path = new Path(uri);
