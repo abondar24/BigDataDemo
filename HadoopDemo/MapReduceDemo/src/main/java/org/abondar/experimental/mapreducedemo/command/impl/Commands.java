@@ -10,6 +10,7 @@ public enum Commands {
     MRMC,
     MRCO,
     MRCN,
+    MRSD,
     MRSS,
     SDPC,
     SFCC,

@@ -1,6 +1,7 @@
 package org.abondar.experimental.mapreducedemo.command;
 
 
+import org.abondar.experimental.mapreducedemo.command.impl.Command;
 import org.abondar.experimental.mapreducedemo.data.StationMetadata;
 import org.abondar.experimental.mapreducedemo.parser.RecordParser;
 import org.abondar.experimental.mapreducedemo.reducer.MaxTemperatureReducer;
@@ -20,7 +21,7 @@ import org.apache.hadoop.util.ToolRunner;
 import java.io.File;
 import java.io.IOException;
 
-public class MaxTemperatureByStationByDistCacheFile extends Configured implements Tool {
+public class MapReduceStationDistCacheFileCommand extends Configured implements Tool, Command {
 
     static class StationTemperatureMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
         private RecordParser parser = new RecordParser();
@@ -71,8 +72,20 @@ public class MaxTemperatureByStationByDistCacheFile extends Configured implement
         return job.waitForCompletion(true) ? 0 : 1;
     }
 
-    public static void main(String[] args) throws Exception {
-        int exitCode = ToolRunner.run(new MaxTemperatureByStationByDistCacheFile(), args);
-        System.exit(exitCode);
+
+    @Override
+    public void execute(String[] args) {
+        try {
+            int exitCode = ToolRunner.run(new MapReduceStationDistCacheFileCommand(), args);
+            if (args.length != 2) {
+                System.err.println("Missing arguments");
+                System.exit(2);
+            }
+
+            System.exit(exitCode);
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            System.exit(512);
+        }
     }
 }
