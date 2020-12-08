@@ -1,7 +1,7 @@
 package org.abondar.experimental.mapreducedemo.command;
 
 
-import org.abondar.experimental.mapreducedemo.command.impl.Command;
+import org.abondar.experimental.hadoopdemo.command.Command;
 import org.abondar.experimental.mapreducedemo.data.StationMetadata;
 import org.abondar.experimental.mapreducedemo.parser.RecordParser;
 import org.abondar.experimental.mapreducedemo.reducer.MaxTemperatureReducer;

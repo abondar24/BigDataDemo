@@ -1,5 +1,7 @@
-package org.abondar.experimental.mapreducedemo.command.impl;
+package org.abondar.experimental.mapreducedemo.command;
 
+import org.abondar.experimental.hadoopdemo.command.AbstractCommandSwitcher;
+import org.abondar.experimental.hadoopdemo.command.MapReduceCommands;
 import org.abondar.experimental.mapreducedemo.command.ConfigurationPrinterCommand;
 import org.abondar.experimental.mapreducedemo.command.JoinRecordCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceCombinerCommand;
@@ -17,23 +19,18 @@ import org.abondar.experimental.mapreducedemo.command.SortDataPreprocessorComman
 import org.abondar.experimental.mapreducedemo.command.SortTemperatureHashPartitionerCommand;
 import org.abondar.experimental.mapreducedemo.command.SortTemperatureTotalOrderPartitionerCommand;
 
-import java.util.Arrays;
 
-public class CommandSwitcher {
+public class CommandSwitcher extends AbstractCommandSwitcher {
 
-    private final CommandExecutor executor;
 
-    public CommandSwitcher(){
-        this.executor = new CommandExecutor();
-    }
 
     public void executeCommand(String[] args){
-        String cmd = args[0].toUpperCase();
-        args = Arrays.copyOfRange(args,1,args.length);
+        String cmd = getCommand(args);
+        args = getArgs(args);
 
         try {
 
-            switch (Commands.valueOf(cmd)){
+            switch (MapReduceCommands.valueOf(cmd)){
 
                 case CPC:
                     ConfigurationPrinterCommand cpc = new ConfigurationPrinterCommand();

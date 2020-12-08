@@ -1,7 +1,7 @@
 package org.abondar.experimental.mapreducedemo;
 
 
-import org.abondar.experimental.mapreducedemo.command.impl.CommandSwitcher;
+import org.abondar.experimental.mapreducedemo.command.CommandSwitcher;
 
 public class Main {
     public static void main(String[] args) throws Exception {

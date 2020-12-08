@@ -12,6 +12,7 @@
         <module>HDFSdemo</module>
         <module>DataIntegrity</module>
         <module>MapReduceDemo</module>
+        <module>Command</module>
 
     </modules>
 

@@ -1,7 +1,7 @@
 package org.abondar.experimental.mapreducedemo.command;
 
 
-import org.abondar.experimental.mapreducedemo.command.impl.Command;
+import org.abondar.experimental.hadoopdemo.command.Command;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.util.Tool;

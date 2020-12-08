@@ -1,4 +1,4 @@
-package org.abondar.experimental.mapreducedemo.command.impl;
+package org.abondar.experimental.hadoopdemo.command;
 
 public class CommandExecutor {
 

@@ -1,7 +1,7 @@
 package org.abondar.experimental.mapreducedemo.command;
 
 
-import org.abondar.experimental.mapreducedemo.command.impl.Command;
+import org.abondar.experimental.hadoopdemo.command.Command;
 import org.abondar.experimental.mapreducedemo.data.TextPair;
 import org.abondar.experimental.mapreducedemo.mapper.JoinRecordMapper;
 import org.abondar.experimental.mapreducedemo.mapper.JoinStationMapper;
