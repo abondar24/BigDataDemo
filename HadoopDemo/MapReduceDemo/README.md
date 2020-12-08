@@ -17,6 +17,7 @@ Set of map reduces demos. Demos work temperature data from National Climatic Dat
 10. Sequence File Converter (sfcc) - Package a collection of small files as a single SequenceFile
 11. Sort Temperature Hash Partitioner (sthp) - Sort a SequenceFile with IntWritable keys using the default HashPartitioner.
 12. Sort Temperature Total Order Partitioner (stto) - Sort a SequenceFile with IntWritable keys using the TotalOrderPartitioner to globally sort the data
+13. Map Reduce Secondary Sort (mrss) - Map Reduce with sorting temperatures in the key sorting temperatures in the key.
 
 ## Build and Run
 ```
