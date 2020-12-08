@@ -16,6 +16,11 @@ public class CommandSwitcher extends AbstractCommandSwitcher {
                     executor.executeCommand(fdc,args);
                     break;
 
+                case TIC:
+                    TextIteratorCommand tic = new TextIteratorCommand();
+                    executor.executeCommand(tic,args);
+                    break;
+
             }
 
         } catch (IllegalArgumentException ex) {
