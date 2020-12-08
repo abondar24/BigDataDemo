@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>HadoopDemo</artifactId>
+        <groupId>org.abondar.experimental</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>HDFSdemo</artifactId>
+    <dependencies>
+
+        <dependency>
+            <groupId>org.abondar.experimental</groupId>
+            <artifactId>Command</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>Compile</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <mainClass>org.abondar.experimental.hdfsdemo.Main</mainClass>
+                        </manifest>
+                    </archive>
+                    <finalName>hdfs</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

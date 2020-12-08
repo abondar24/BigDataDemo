@@ -1,9 +1,9 @@
-package org.abondar.experimental.mapreducedemo;
+package org.abondar.experimental.hdfsdemo;
 
-
-import org.abondar.experimental.mapreducedemo.command.CommandSwitcher;
+import org.abondar.experimental.hdfsdemo.command.CommandSwitcher;
 
 public class Main {
+
     public static void main(String[] args) {
         CommandSwitcher cs = new CommandSwitcher();
         if (args.length==0){

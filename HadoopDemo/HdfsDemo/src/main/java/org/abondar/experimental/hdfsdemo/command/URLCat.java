@@ -1,4 +1,4 @@
-package org.abondar.experimental.kafkademo.hdfsdemo;
+package org.abondar.experimental.hdfsdemo.command;
 
 
 import org.apache.hadoop.fs.FsUrlStreamHandlerFactory;
