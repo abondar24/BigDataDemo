@@ -1,6 +1,7 @@
 package org.abondar.experimental.mapreducedemo.command;
 
 
+import org.abondar.experimental.mapreducedemo.command.impl.Command;
 import org.abondar.experimental.mapreducedemo.data.TextPair;
 import org.abondar.experimental.mapreducedemo.mapper.JoinRecordMapper;
 import org.abondar.experimental.mapreducedemo.mapper.JoinStationMapper;
@@ -16,9 +17,10 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-public class JoinRecordWithStationName extends Configured implements Tool {
+public class JoinRecordCommand extends Configured implements Tool, Command {
 
-    public class KeyPartitioner extends Partitioner<TextPair, Text>{
+
+    public static class KeyPartitioner extends Partitioner<TextPair, Text>{
 
         @Override
         public int getPartition(TextPair key, Text value, int numPartitions) {
@@ -30,7 +32,7 @@ public class JoinRecordWithStationName extends Configured implements Tool {
     @Override
     public int run(String[] args) throws Exception {
         if (args.length!=3) {
-            System.err.println("Usage: <input><station input><output>");
+            System.err.println("Usage: jrc <input><station input><output>");
             return -1;
         }
 
@@ -53,8 +55,20 @@ public class JoinRecordWithStationName extends Configured implements Tool {
         return job.waitForCompletion(true) ? 0 : 1;
     }
 
-    public static void main(String[] args) throws Exception {
-        int exitCode = ToolRunner.run(new JoinRecordWithStationName(), args);
-        System.exit(exitCode);
+    @Override
+    public void execute(String[] args) {
+        try {
+            int exitCode = ToolRunner.run(new JoinRecordCommand(), args);
+            if (args.length != 3) {
+                System.err.println("Missing arguments");
+                System.exit(2);
+            }
+
+            System.exit(exitCode);
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            System.exit(512);
+        }
     }
+
 }

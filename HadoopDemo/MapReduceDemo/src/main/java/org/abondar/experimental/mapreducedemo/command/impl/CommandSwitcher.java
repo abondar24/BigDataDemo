@@ -1,6 +1,7 @@
 package org.abondar.experimental.mapreducedemo.command.impl;
 
 import org.abondar.experimental.mapreducedemo.command.ConfigurationPrinterCommand;
+import org.abondar.experimental.mapreducedemo.command.JoinRecordCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceCombinerCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceCommand;
 import org.abondar.experimental.mapreducedemo.command.MapReduceCompressorCommand;
@@ -36,6 +37,11 @@ public class CommandSwitcher {
                 case CPC:
                     ConfigurationPrinterCommand cpc = new ConfigurationPrinterCommand();
                     executor.executeCommand(cpc,args);
+                    break;
+
+                case JRC:
+                    JoinRecordCommand jrc = new JoinRecordCommand();
+                    executor.executeCommand(jrc,args);
                     break;
 
                 case MTFC:

@@ -3,6 +3,7 @@ package org.abondar.experimental.mapreducedemo.command.impl;
 public enum Commands {
 
     CPC,
+    JRC,
     MTFC,
     MRC,
     MRCC,

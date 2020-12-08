@@ -19,7 +19,7 @@ Set of map reduces demos. Demos work temperature data from National Climatic Dat
 12. Sort Temperature Total Order Partitioner (stto) - Sort a SequenceFile with IntWritable keys using the TotalOrderPartitioner to globally sort the data
 13. Map Reduce Secondary Sort (mrss) - Map Reduce with sorting temperatures in the key sorting temperatures in the key.
 14. Map Reduce Station Dist Cache File (mrsd) - Map Reduce with station, showing station names from a lookup table passed as a distributed cache file.
-
+15. Join Record Command (jrc) - Join weather records with station names.
 
 
 ## Build and Run
@@ -40,3 +40,4 @@ cd <hadoop-dir>/bin
 - Missing Temperature Fields requires job id argument(format job_1410450250506_0007) instead of input data. Any map reduce job must be run before this demo
 - Sort Temperature Hash Partitioner requires sequence file which is an output of Sort Data Preprocessor or Sequence File Converter.
 - Sort Temperature Total Order Partitioner requires sequence file which is an output of Sort Data Preprocessor or Sequence File Converter.
+- Join Record Command requires an additional argument - station directory. It should be put between input file argument and output directory argument.
