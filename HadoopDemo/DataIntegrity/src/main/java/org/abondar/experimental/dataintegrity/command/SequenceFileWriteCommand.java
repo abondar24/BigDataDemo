@@ -1,20 +1,18 @@
 package org.abondar.experimental.dataintegrity.command;
 
 
+import org.abondar.experimental.hadoopdemo.command.Command;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FileContext;
-import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.fs.permission.FsPermission;
 import org.apache.hadoop.io.IOUtils;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.SequenceFile;
 import org.apache.hadoop.io.Text;
 
 import java.io.IOException;
-import java.net.URI;
 
-public class SequenceFileWriteDemo {
+
+public class SequenceFileWriteCommand implements Command {
 
     private static final String[] DATA = {
             "I like burgers",
@@ -22,7 +20,9 @@ public class SequenceFileWriteDemo {
             "I like Borscht"
     };
 
-    public static void main(String[] args) {
+
+    @Override
+    public void execute(String[] args) {
         String uri = args[0];
         Configuration conf = new Configuration();
         Path path = new Path(uri);
@@ -45,7 +45,7 @@ public class SequenceFileWriteDemo {
             }
 
         }catch (IOException ex){
-            System.err.printf(ex.getMessage());
+            System.err.println(ex.getMessage());
         } finally {
             IOUtils.closeStream(writer);
         }
