@@ -22,6 +22,11 @@ public class CommandSwitcher extends AbstractCommandSwitcher {
                     executor.executeCommand(fscc,args);
                     break;
 
+                case FSDC:
+                    FileSystemDoubleCatCommand fsds = new FileSystemDoubleCatCommand();
+                    executor.executeCommand(fsds,args);
+                    break;
+
 
             }
 

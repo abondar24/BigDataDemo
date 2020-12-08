@@ -6,6 +6,7 @@ Several examples of Hadoop Distributes File System usage.
 
 1. Copy File (cfc) - Copy a file from local file system to HDFS.
 2. File System Cat (fscc) - Show contents of file on stored in HDFS.
+3. File System Double Cat (fsdc) - Show contents of file on stored in HDFS twice using seek..
 
 ## Build and Run
 ```
